@@ -39,9 +39,15 @@ function InitializeHUD()
             duration = 5000
         })
     end
+
+    SendMessage('setPlayerId', cache.serverId)
+    SendMessage('toggleHud', HUD)
 end
 
 AddEventHandler('onResourceStart', function(resourceName)
     if cache.resource ~= resourceName then return end
+    PlayerLoaded = true
+    HUD = true
+    Wait(500)
     InitializeHUD()
 end)

@@ -10,17 +10,15 @@ if player then
 end
 
 RegisterNetEvent('ox:playerLoaded', function()
-    PlayerLoaded = true
     InitializeHUD()
     Wait(500)
-
     SendMessage('setPlayerId', cache.serverId)
-    SendMessage('toggleHud', true)
+    SendMessage('toggleHud', HUD)
 end)
 
 RegisterNetEvent('ox:playerLogout', function()
     PlayerLoaded = false
-    HUD = false
+    SendMessage('setPlayerId', 0)
     SendMessage('toggleHud', false)
 end)
 
