@@ -11,6 +11,7 @@ end
 
 RegisterNetEvent('ox:playerLoaded', function()
     PlayerLoaded = true
+    HUD = true
     InitializeHUD()
 end)
 

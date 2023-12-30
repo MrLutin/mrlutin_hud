@@ -23,7 +23,6 @@ function InitializeHUD()
     DisplayRadar(false)
     repeat Wait(100) until PlayerLoaded and NuiReady
 
-
     local defaultAspectRatio = 1920/1080 -- Don't change this.
     local resolutionX, resolutionY = GetActiveScreenResolution()
     local aspectRatio = resolutionX/resolutionY
