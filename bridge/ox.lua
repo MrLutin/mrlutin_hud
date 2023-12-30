@@ -11,14 +11,13 @@ end
 
 RegisterNetEvent('ox:playerLoaded', function()
     PlayerLoaded = true
-    HUD = true
     InitializeHUD()
 end)
 
 RegisterNetEvent('ox:playerLogout', function()
     PlayerLoaded = false
     HUD = false
-    SendMessage('toggleHud', HUD)
+    SendMessage('toggleHud', false)
 end)
 
 AddEventHandler('ox:statusTick', function(values)

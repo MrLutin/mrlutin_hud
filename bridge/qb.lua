@@ -20,8 +20,7 @@ end)
 
 RegisterNetEvent("QBCore:Client:OnPlayerUnload", function()
     PlayerLoaded = false
-    HUD = false
-    SendMessage('toggleHud', HUD)
+    SendMessage('toggleHud', false)
 end)
 
 RegisterNetEvent("QBCore:Player:SetPlayerData", function(val)

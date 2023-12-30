@@ -58,7 +58,7 @@ function InitializeHUD()
     end
 
     SendMessage('setPlayerId', cache.serverId)
-    SendMessage('toggleHud', HUD)
+    SendMessage('toggleHud', not HUD)
 end
 
 AddEventHandler('onResourceStart', function(resourceName)
