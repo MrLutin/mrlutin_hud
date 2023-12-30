@@ -9,6 +9,7 @@ window.onload = (event) => {
   const ID = document.getElementById("ID");
 
   const Speed = document.getElementById("SpeedIndicator");
+  const Nitrous = document.getElementById("NitrousIndicator");
   const Fuel = document.getElementById("FuelIndicator");
   const Voice = document.getElementById("VoiceIndicator");
   const Armour = document.getElementById("ArmourIndicator");
@@ -17,6 +18,7 @@ window.onload = (event) => {
   const Health = document.getElementById("HealthIndicator");
   const Hunger = document.getElementById("HungerIndicator");
   const Thirst = document.getElementById("ThirstIndicator");
+  const Drunk = document.getElementById("DrunkIndicator");
   const Stress = document.getElementById("StressIndicator");
 
   const HealthIcon = document.getElementById("HealthIcon");
@@ -27,6 +29,7 @@ window.onload = (event) => {
   const HungerIcon = document.getElementById("HungerIcon");
   const ThirstIcon = document.getElementById("ThirstIcon");
   const StressIcon = document.getElementById("StressIcon");
+  const DrunkIcon = document.getElementById("DrunkIcon");
 
   const Seatbelt = document.getElementById("SeatbeltIcon");
   const Buckle = document.getElementById("buckle");
@@ -135,6 +138,7 @@ window.onload = (event) => {
         let maxSpeed = data.speed.max * data.unitsMultiplier;
         let percSpeed = (speed / maxSpeed) * 0.7;
         let fuel = data.fuel && data.fuel / 100;
+        let nitrous = data.nitrous && data.nitrous;
 
         percSpeed > 1 && (percSpeed = 1);
         percSpeed >= 0.01 && SpeedIcon.classList.remove("fa-tachometer-alt");
@@ -152,17 +156,29 @@ window.onload = (event) => {
         }
 
         Fuel.style.display = fuel !== false ? "block" : "none";
+        Nitrous.style.display = nitrous !== false ? "block" : "none";
         fuel <= 0.15 && FuelIcon.classList.toggle("flash");
+
         Circle.FuelIndicator.path.setAttribute(
           "stroke",
           fuel > 0.15 ? "rgb(255, 255, 255)" : "rgb(255, 0, 0)"
         );
 
+        nitrous <= 15 && FuelIcon.classList.toggle("flash");
+        Circle.NitrousIndicator.path.setAttribute(
+          "stroke",
+          nitrous > 15 ? "rgb(5,255,217)" : "rgb(255,0,0)"
+        );
+
         Circle.SpeedIndicator.animate(percSpeed);
         Circle.FuelIndicator.animate(fuel);
+        Circle.NitrousIndicator.animate(nitrous);
       } else {
         Circle.SpeedIndicator.animate(0, function () {
           Speed.style.display = "none";
+        });
+        Circle.NitrousIndicator.animate(0, function () {
+          Nitrous.style.display = "none";
         });
         Circle.FuelIndicator.animate(0, function () {
           Fuel.style.display = "none";
@@ -214,15 +230,20 @@ window.onload = (event) => {
       Hunger.style.display = "block";
       Thirst.style.display = "block";
       Stress.style.display = data.stress > 5 && "block";
+      Drunk.style.display = data.drunk > 5 && "block";
 
       data.hunger < 15 && HungerIcon.classList.toggle("flash");
       data.thirst < 15 && ThirstIcon.classList.toggle("flash");
       data.stress > 50 && StressIcon.classList.toggle("flash");
+      data.drunk > 50 && DrunkIcon.classList.toggle("flash");
 
       Circle.HungerIndicator.animate(data.hunger / 100);
       Circle.ThirstIndicator.animate(data.thirst / 100);
       Circle.StressIndicator.animate(data.stress / 100, function () {
         Stress.style.display = data.stress <= 5 && "none";
+      });
+      Circle.DrunkIndicator.animate(data.drunk / 100, function () {
+        Drunk.style.display = data.drunk <= 5 && "none";
       });
     }
 
@@ -231,21 +252,6 @@ window.onload = (event) => {
       Seatbelt.style.color = data.buckled
         ? "rgb(0, 255, 100)"
         : "rgb(255, 100, 100)";
-    }
-
-    if (action == "playSound") {
-      switch (data) {
-        case "unbuckle":
-          Unbuckle.volume = 0.2;
-          Unbuckle.play();
-          break;
-        case "buckle":
-          Buckle.volume = 0.2;
-          Buckle.play();
-          break;
-        default:
-          break;
-      }
     }
   });
 };

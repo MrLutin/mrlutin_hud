@@ -52,6 +52,20 @@ export default {
     trailWidth: 13,
     duration: 600,
   }),
+  NitrousIndicator: new ProgressBar.Circle("#NitrousIndicator", {
+    color: "rgb(2,255,195)",
+    trailColor: "rgb(35, 35, 35)",
+    strokeWidth: 13,
+    trailWidth: 13,
+    duration: 600,
+  }),
+  DrunkIndicator: new ProgressBar.Circle("#NitrousIndicator", {
+    color: "rgb(86,2,255)",
+    trailColor: "rgb(35, 35, 35)",
+    strokeWidth: 13,
+    trailWidth: 13,
+    duration: 600,
+  }),
   FuelIndicator: new ProgressBar.Circle("#FuelIndicator", {
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 13,
