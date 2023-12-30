@@ -2,23 +2,6 @@ PlayerLoaded = false
 NuiReady = false
 HUD = false
 
--- wait for the NUI callback
-RegisterNUICallback('nuiReady', function(_, cb)
-    NuiReady = true
-    cb({})
-end)
-
----Easier NUI Messages
----@param action string
----@param message any
-function SendMessage(action, message)
-    SendNUIMessage({
-        action = action,
-        message = message
-    })
-end
-
-
 function InitializeHUD()
     DisplayRadar(false)
     repeat Wait(100) until PlayerLoaded and NuiReady

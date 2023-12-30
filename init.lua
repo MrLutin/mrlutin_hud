@@ -18,6 +18,21 @@ if IsDuplicityVersion() then
         StopResource( GetCurrentResourceName() )
         print(mrMsg or oxMsg)
     end
+else
+    RegisterNUICallback('nuiReady', function(_, cb)
+        NuiReady = true
+        cb({})
+    end)
+
+    ---Easier NUI Messages
+    ---@param action string
+    ---@param message any
+    function SendMessage(action, message)
+        SendNUIMessage({
+            action = action,
+            message = message
+        })
+    end
 end
 
 
