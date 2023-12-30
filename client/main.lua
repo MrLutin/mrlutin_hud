@@ -31,17 +31,18 @@ function InitializeHUD()
     Wait(500)
 
     if IsPedSwimming(cache.ped) then
-        lib.notify({
+        Mrlutin.notify({
             id = 'hud:swimming',
             title = 'HUD',
             description = 'Looks like you are swimming, please don\'t go underwater while the HUD is loading.',
             type = 'inform',
-            duration = 5000
+            sound = "demo",
+            duration = 8000
         })
     end
 
     SendMessage('setPlayerId', cache.serverId)
-    SendMessage('toggleHud', HUD)
+    SendMessage('toggleHud', true)
 end
 
 AddEventHandler('onResourceStart', function(resourceName)
