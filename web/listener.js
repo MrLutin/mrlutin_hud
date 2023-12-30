@@ -32,8 +32,6 @@ window.onload = (event) => {
   const DrunkIcon = document.getElementById("DrunkIcon");
 
   const Seatbelt = document.getElementById("SeatbeltIcon");
-  const Buckle = document.getElementById("buckle");
-  const Unbuckle = document.getElementById("unbuckle");
 
   Circle.VoiceIndicator.animate(0.66);
 
