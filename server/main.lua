@@ -18,22 +18,3 @@ local function healPlayer(source, target)
     player.setStatus('stress', 0)
     player.setStatus('drunk', 0)
 end
-
-lib.addCommand('heal', {
-    help = 'Restore player health and statuses',
-    params = {
-        {
-            name = 'target',
-            type = 'playerId',
-            help = 'Target player\'s server id', },
-        {
-            name = 'armour',
-            type = 'number',
-            help = 'How much armour to give the player',
-            optional = true,
-        }
-    },
-    restricted = 'group.admin'
-}, function(source, args, raw)
-    healPlayer(source, args.target)
-end)
