@@ -16,13 +16,8 @@ dependencies {
     'mrlutin_lib',
 }
 
-files {
-    'locales/*.json',
-}
-
 shared_scripts {
     '@mrlutin_lib/imports.lua',
-    'config.lua',
     'init.lua',
 }
 
