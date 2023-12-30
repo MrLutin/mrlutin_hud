@@ -13,10 +13,12 @@ description  'Custom version of dx_hud made by mrlutin'
 -- Manifest --
 dependencies {
     '/onesync',
+    'ox_lib',
     'mrlutin_lib',
 }
 
 shared_scripts {
+    '@ox_lib/init.lua',
     '@mrlutin_lib/imports.lua',
     'init.lua',
 }
