@@ -49,7 +49,7 @@ function InitializeHUD()
 
     if IsPedSwimming(cache.ped) then
         lib.notify({
-            id = 'dx_hud:swimming',
+            id = 'hud:swimming',
             title = 'HUD',
             description = 'Looks like you are swimming, please don\'t go underwater while the HUD is loading.',
             type = 'inform',
@@ -58,7 +58,7 @@ function InitializeHUD()
     end
 
     SendMessage('setPlayerId', cache.serverId)
-    SendMessage('toggleHud', not HUD)
+    SendMessage('toggleHud', true)
 end
 
 AddEventHandler('onResourceStart', function(resourceName)
