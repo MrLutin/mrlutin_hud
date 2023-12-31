@@ -28,15 +28,14 @@ if not IsDuplicityVersion() then
     -- Support for resource restart
     AddEventHandler('onResourceStart', function(resourceName)
         if resourceName == cache.resource and cache.ped then
-            PlayerIsLoaded = true
-            Mrlutin.log('info', sting.format('%s is now started!', cache.resource ))
+            Mrlutin.log('info', string.format('%s is now started!', cache.resource ))
         end
     end)
 
     -- send warn message if hud is stopped
     AddEventHandler('onResourceStop', function(resource)
         if resource == GetCurrentResourceName() then
-            Mrlutin.log('warn', sting.format('%s is now stopped!', cache.resource ))
+            Mrlutin.log('warn', string.format('%s is now stopped!', cache.resource ))
         end
     end)
 end
