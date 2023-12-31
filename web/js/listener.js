@@ -129,7 +129,7 @@ window.onload = (event) => {
         let speed = data.speed.current * isMetricMultiplier;
         let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
-        let nitrous = data.nitrous && data.nitrous;
+        let nitrous = data.nitrous && data.nitrous / 100;
 
         let speedValue = document.getElementById("currentSpeed");
         let measurementType = document.getElementById("metricType");
@@ -142,6 +142,10 @@ window.onload = (event) => {
           Nitrous.style.display = "none";
         } else {
           Nitrous.style.display = "block";
+          Circle.NitrousIndicator.path.setAttribute(
+            "stroke",
+            nitrous > 0.15 ? "rgb(0,255,196)" : "rgb(255, 0, 0)"
+          );
         }
 
         if (data.electric === true) {
