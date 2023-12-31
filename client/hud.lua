@@ -1,8 +1,7 @@
 Citizen.CreateThread(function()
     repeat Wait(100) until PlayerIsLoaded and NuiReady
 
-    while PlayerIsLoaded and NuiReady do
-
+    while true do
         -- hide hud if PauseMenu is Active
         SendMessage('toggleHud', IsPauseMenuActive())
 
