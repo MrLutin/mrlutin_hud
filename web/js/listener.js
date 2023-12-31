@@ -27,6 +27,7 @@ window.onload = (event) => {
   const DrunkIcon = document.getElementById("DrunkIcon");
 
   const Speedometer = document.getElementById("SpeedoContainer");
+  const Seatbelt = document.getElementById("SeatbeltIcon");
   const Nitrous = document.getElementById("NitrousIndicator");
 
   Circle.VoiceIndicator.animate(0.66);
@@ -216,6 +217,7 @@ window.onload = (event) => {
 
       Circle.HungerIndicator.animate(data.hunger / 100);
       Circle.ThirstIndicator.animate(data.thirst / 100);
+
       Circle.StressIndicator.animate(data.stress / 100, function () {
         Stress.style.display = data.stress <= 5 && "none";
       });
