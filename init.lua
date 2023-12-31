@@ -7,6 +7,11 @@ if not GetResourceState('mrlutin_lib'):find('start') then
     return Mrlutin.error('^1mrlutin_lib should be started before this resource.^0')
 end
 
+-- Global variables
+PlayerLoaded = false
+NuiReady = false
+HUD = false
+
 -- load data & function by context
 if IsDuplicityVersion() then
     -- check if dependencies for some other resources

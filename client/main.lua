@@ -1,7 +1,3 @@
-PlayerLoaded = false
-NuiReady = false
-HUD = false
-
 function InitializeHUD()
     DisplayRadar(false)
     repeat Wait(100) until PlayerLoaded and NuiReady
