@@ -8,13 +8,13 @@ Citizen.CreateThread(function()
     print('HUD initialized')
     SendMessage('setPlayerId', cache.serverId)
 
+    -- voice disabled
     if not voiceCon then
         Mrlutin.alert({
             title = "Voice connection",
-            description = "Aucun micro détecté! veuillez activer le chat vocal ou un kick automatique sera effectué"
+            content = "Aucun micro détecté! veuillez activer le chat vocal ou un kick automatique sera effectué"
         })
     end
-
 
     -- statuses loop
     while true do
