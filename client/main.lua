@@ -17,4 +17,8 @@ AddEventHandler('Mrlutin:OnPlayerLoaded', function(playerData)
     PlayerIsLoaded = true
 end)
 
+AddEventHandler('ox:statusTick', function(values)
+    SendMessage('status', values)
+end)
+
 
