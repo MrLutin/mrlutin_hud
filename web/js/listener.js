@@ -125,7 +125,7 @@ window.onload = (event) => {
         Speedometer.style.display = "flex";
 
         let speed = data.speed.current * data.unitsMultiplier;
-        let rpm = data.rpm && data.rpm * 100;
+        let rpm = data.rpm && data.rpm / 100;
         let fuel = data.fuel && data.fuel / 100;
         let nitrous = data.nitrous && data.nitrous / 100;
         let speedValue = document.getElementById("currentSpeed");
