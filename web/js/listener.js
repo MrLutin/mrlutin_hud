@@ -129,7 +129,7 @@ window.onload = (event) => {
         let speed = data.speed.current * isMetricMultiplier;
         let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
-        let nitrous = data.nitrous && data.nitrous;
+        let nitrous = data.nitrous && (data.nitrous / 500) * 100;
 
         let speedValue = document.getElementById("currentSpeed");
         let measurementType = document.getElementById("metricType");

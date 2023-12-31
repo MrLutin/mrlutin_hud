@@ -72,7 +72,6 @@ export default {
   }),
 
   NitrousIndicator: new ProgressBar.Line(".nitrous", {
-    maximum: 500,
     trailColor: "rgb(35, 35, 35)",
     to: { color: "#00ffff" },
     from: { color: "rgba(255,0,8,0.75)" },
