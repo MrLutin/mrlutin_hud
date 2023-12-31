@@ -140,19 +140,24 @@ window.onload = (event) => {
 
         if (data.electric == true) {
           Circle.FuelIndicator.path.setAttribute(
-            "color",
-            "rgba(17,255,0,0.75)"
+            "stroke",
+            fuel > 0.15 ? "rgb(30,204,8)" : "rgb(255, 0, 0)"
+          );
+        } else {
+          Circle.FuelIndicator.path.setAttribute(
+            "stroke",
+            fuel > 0.15 ? "rgb(249,195,7)" : "rgb(255, 0, 0)"
           );
         }
 
         Circle.NitrousIndicator.path.setAttribute(
           "stroke",
-          nitrous > 0.15 ? "rgba(255,255,255)" : "rgb(255,0,0)"
+          nitrous > 0.15 ? "rgb(0,255,187)" : "rgb(255,0,0)"
         );
 
-        Circle.FuelIndicator.path.setAttribute(
+        Circle.RpmIndicator.path.setAttribute(
           "stroke",
-          fuel > 0.15 ? "rgb(255, 255, 255)" : "rgb(255, 0, 0)"
+          rpm <= 85 ? "rgb(255,0,0)" : "rgb(0,187,255)"
         );
 
         Circle.FuelIndicator.animate(fuel);
