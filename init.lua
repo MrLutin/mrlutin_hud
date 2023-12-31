@@ -12,19 +12,6 @@ if not IsDuplicityVersion() then
     PlayerIsLoaded = false
     NuiReady = true
 
-    RegisterNUICallback('nuiReady', function(_, cb)
-        NuiReady = true
-        cb({})
-    end)
-
-    ---Easier NUI Messages
-    function SendMessage(action, message)
-        SendNUIMessage({
-            action = action,
-            message = message
-        })
-    end
-
     -- Support for resource restart
     AddEventHandler('onResourceStart', function(resourceName)
         if resourceName == cache.resource and cache.ped then
