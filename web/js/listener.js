@@ -156,7 +156,7 @@ window.onload = (event) => {
 
         Circle.RpmIndicator.animate(rpm);
         Circle.FuelIndicator.animate(fuel);
-        Circle.NitrousIndicator.animate(nitrous / 100);
+        Circle.NitrousIndicator.animate(nitrous);
       } else {
         Speedometer.style.display = "none";
       }
