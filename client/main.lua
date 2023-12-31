@@ -8,9 +8,8 @@ end
 
 function InitializeHUD()
     repeat Wait(100) until PlayerIsLoaded and NuiReady
-    print('HUD initialized')
     SendMessage('toggleHud', true)
-    Mrlutin.log('info', json.encode(statuses, {intent=true}))
+    print('HUD initialized')
 end
 
 -- NUI callback
@@ -23,7 +22,9 @@ end)
 
 AddEventHandler('Mrlutin:OnPlayerLoaded', function(playerData)
     PlayerIsLoaded = true
-    InitializeHUD()
+
+    SendMessage('setPlayerId', cache.serverId)
+    SendMessage('setHealth', { current = GetEntityHealth(cache.ped), max = GetEntityMaxHealth(cache.ped) })
 end)
 
 
