@@ -22,7 +22,6 @@ window.onload = (event) => {
   const Stress = document.getElementById("StressIndicator");
 
   const HealthIcon = document.getElementById("HealthIcon");
-  const SpeedIcon = document.getElementById("SpeedIcon");
   const VoiceIcon = document.getElementById("VoiceIcon");
   const OxygenIcon = document.getElementById("OxygenIcon");
   const FuelIcon = document.getElementById("FuelIcon");
@@ -133,54 +132,47 @@ window.onload = (event) => {
         Speed.style.display = "flex";
 
         let speed = data.speed.current * data.unitsMultiplier;
-        let maxSpeed = data.speed.max * data.unitsMultiplier;
-        let percSpeed = (speed / maxSpeed) * 0.7;
+        let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
         let nitrous = data.nitrous && data.nitrous;
 
-        percSpeed > 1 && (percSpeed = 1);
-        percSpeed >= 0.01 && SpeedIcon.classList.remove("fa-tachometer-alt");
-        percSpeed >= 0.01 && (SpeedIcon.textContent = Math.floor(speed));
-        percSpeed < 0.01 && SpeedIcon.classList.add("fa-tachometer-alt");
-        percSpeed < 0.01 && (SpeedIcon.textContent = "");
+        Nitrous.style.display = nitrous !== false ? "block" : "none";
 
         if (data.electric == true) {
-          FuelIcon.classList.remove("fa-gas-pump");
-          FuelIcon.classList.add("fa-bolt");
-          fuel = 1;
-        } else {
-          FuelIcon.classList.remove("fa-bolt");
-          FuelIcon.classList.add("fa-gas-pump");
+          Circle.FuelIndicator.path.setAttribute(
+            "color",
+            "rgba(17,255,0,0.75)"
+          );
         }
 
-        Fuel.style.display = fuel !== false ? "block" : "none";
-        Nitrous.style.display = nitrous !== false ? "block" : "none";
         fuel <= 0.15 && FuelIcon.classList.toggle("flash");
+        nitrous <= 15 && FuelIcon.classList.toggle("flash");
+
+        Circle.NitrousIndicator.path.setAttribute(
+          "stroke",
+          nitrous > 15 ? "rgba(255,255,255)" : "rgb(255,0,0)"
+        );
 
         Circle.FuelIndicator.path.setAttribute(
           "stroke",
           fuel > 0.15 ? "rgb(255, 255, 255)" : "rgb(255, 0, 0)"
         );
 
-        nitrous <= 15 && FuelIcon.classList.toggle("flash");
-        Circle.NitrousIndicator.path.setAttribute(
-          "stroke",
-          nitrous > 15 ? "rgb(5,255,217)" : "rgb(255,0,0)"
-        );
-
-        Circle.SpeedIndicator.animate(percSpeed);
         Circle.FuelIndicator.animate(fuel);
         Circle.NitrousIndicator.animate(nitrous);
-
-        Circle.RpmIndicator.animate((speed / maxSpeed) * 0.7);
+        Circle.RpmIndicator.animate(rpm);
       } else {
-        Circle.SpeedIndicator.animate(0, function () {
-          Speed.style.display = "none";
-        });
+        Speed.style.display = "none";
+
         Circle.NitrousIndicator.animate(0, function () {
           Nitrous.style.display = "none";
         });
+
         Circle.FuelIndicator.animate(0, function () {
+          Fuel.style.display = "none";
+        });
+
+        Circle.RpmIndicator.animate(0, function () {
           Fuel.style.display = "none";
         });
       }
