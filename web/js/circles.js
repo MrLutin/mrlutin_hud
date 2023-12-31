@@ -72,8 +72,9 @@ export default {
   }),
 
   NitrousIndicator: new ProgressBar.Line(".nitrous", {
+    maximum: 500,
     trailColor: "rgb(35, 35, 35)",
-    from: { color: "#00bbff" },
+    from: { color: "#00ffff" },
     to: { color: "rgba(255,0,8,0.75)" },
     strokeWidth: 4,
     trailWidth: 3,
@@ -86,7 +87,7 @@ export default {
   FuelIndicator: new ProgressBar.Line(".fuel", {
     trailColor: "rgb(35, 35, 35)",
     from: { color: "#f9c307" },
-    to: { color: "rgba(255,0,8,0.75)" },
+    to: { color: "rgba(255,0,8,0.53)" },
     strokeWidth: 4,
     trailWidth: 3,
     duration: 600,
