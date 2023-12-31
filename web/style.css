@@ -11,33 +11,13 @@ img {
   height: 100%;
   overflow: hidden;
   margin: 0;
-  display: none;
+  /*display: none;*/
   flex-direction: column;
 }
 
 #IconsContainer {
   margin-top: auto;
 }
-
-#SpeedoContainer {
-  display: none;
-  align-items: flex-end;
-  justify-content: space-between;
-  flex-direction: column;
-  position: fixed;
-  bottom: 2%;
-  right: 4%;
-  font-size: 75px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  color: #e2e0e0;
-  height: 100px;
-  width: 200px;
-  animation: show 500ms forwards;
-  padding: 10px;
-  border-radius: 6px;
-}
-
 
 #Icons {
   display: flex;
@@ -83,7 +63,6 @@ img {
   text-shadow: 1px 1px 10px #000;
   text-align: center;
   line-height: 50px;
-  display: none;
 }
 
 /* Logo */
@@ -116,6 +95,24 @@ img {
   }
 }
 
+#SpeedoContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  position: fixed;
+  bottom: 2%;
+  right: 4%;
+  font-size: 75px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #e2e0e0;
+  height: 100px;
+  width: 200px;
+  animation: show 500ms forwards;
+  padding: 10px;
+  border-radius: 6px;
+}
 
 .measurementType {
   font-size: 18px;
@@ -133,21 +130,46 @@ img {
   justify-content: space-between;
 }
 
-.rpmPart {
+.vehInfo {
   width: 100%;
-  height: 20px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoPart {
+  width: 100%;
+  height: auto;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: column;
 }
 
 .rpm {
-  width: 100%;
-  height: 10px;
-  background: #29b429;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  width: 95%;
+  height: 5px;
+  border-radius: 5px;
   transition: all 450ms ease;
+  margin: 3px;
+}
+
+.fuel {
+  width: 95%;
+  height: 5px;
+  border-radius: 5px;
+  transition: all 450ms ease;
+  margin: 3px;
+}
+
+.nitrous {
+  width: 95%;
+  height: 5px;
+  border-radius: 5px;
+  transition: all 450ms ease;
+  margin: 2px;
 }
 
 .gear {

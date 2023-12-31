@@ -77,4 +77,11 @@ export default {
     trailWidth: 13,
     duration: 100,
   }),
+
+  RpmIndicator: new ProgressBar.Line("#nitrous", {
+    color: "rgb(255,213,0)",
+    strokeWidth: 4,
+    trailWidth: 13,
+    duration: 600,
+  }),
 };

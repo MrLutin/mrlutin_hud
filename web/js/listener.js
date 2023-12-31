@@ -171,6 +171,8 @@ window.onload = (event) => {
         Circle.SpeedIndicator.animate(percSpeed);
         Circle.FuelIndicator.animate(fuel);
         Circle.NitrousIndicator.animate(nitrous);
+
+        Circle.RpmIndicator.animate((speed / maxSpeed) * 0.7);
       } else {
         Circle.SpeedIndicator.animate(0, function () {
           Speed.style.display = "none";
