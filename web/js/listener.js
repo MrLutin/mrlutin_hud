@@ -125,7 +125,7 @@ window.onload = (event) => {
 
         let speed = data.speed.current * data.unitsMultiplier;
         let rpm = data.rpm && data.rpm;
-        let fuel = data.fuel && data.fuel / 100;
+        let fuel = data.fuel && data.fuel;
         let nitrous = data.nitrous && data.nitrous;
 
         if (data.electric == true) {
@@ -142,7 +142,7 @@ window.onload = (event) => {
 
         Circle.NitrousIndicator.path.setAttribute(
           "stroke",
-          nitrous > 0.15 ? "rgb(0,255,187)" : "rgb(255,0,0)"
+          nitrous > 15 ? "rgb(0,255,187)" : "rgb(255,0,0)"
         );
 
         Circle.RpmIndicator.path.setAttribute(
