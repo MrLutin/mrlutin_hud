@@ -34,7 +34,7 @@ if not IsDuplicityVersion() then
 
     -- send warn message if hud is stopped
     AddEventHandler('onResourceStop', function(resource)
-        if resource == GetCurrentResourceName() then
+        if resource == cache.resource then
             Mrlutin.log('warn', string.format('%s is now stopped!', cache.resource ))
         end
     end)
