@@ -224,11 +224,11 @@ window.onload = (event) => {
       });
     }
 
-    // if (action == "setSeatbelt") {
-    //   Seatbelt.style.display = data.toggled ? "block" : "none";
-    //   Seatbelt.style.color = data.buckled
-    //     ? "rgb(0, 255, 100)"
-    //     : "rgb(255, 100, 100)";
-    // }
+    if (action == "setSeatbelt") {
+      Seatbelt.style.display = data.toggled ? "block" : "none";
+      Seatbelt.style.color = data.buckled
+        ? "rgb(0, 255, 100)"
+        : "rgb(255, 100, 100)";
+    }
   });
 };
