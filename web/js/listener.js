@@ -5,12 +5,10 @@ window.onload = (event) => {
   fetch(`https://${GetParentResourceName()}/nuiReady`);
 
   const Container = document.getElementById("Container");
-  const Logo = document.getElementById("Logo");
   const ID = document.getElementById("ID");
 
-  const Speedometer = document.getElementById("SpeedoContainer");
-
   const Voice = document.getElementById("VoiceIndicator");
+
   const Armour = document.getElementById("ArmourIndicator");
   const Stamina = document.getElementById("StaminaIndicator");
   const Oxygen = document.getElementById("OxygenIndicator");
@@ -19,14 +17,16 @@ window.onload = (event) => {
   const Thirst = document.getElementById("ThirstIndicator");
   const Drunk = document.getElementById("DrunkIndicator");
   const Stress = document.getElementById("StressIndicator");
-
   const HealthIcon = document.getElementById("HealthIcon");
+
   const VoiceIcon = document.getElementById("VoiceIcon");
   const OxygenIcon = document.getElementById("OxygenIcon");
   const HungerIcon = document.getElementById("HungerIcon");
   const ThirstIcon = document.getElementById("ThirstIcon");
   const StressIcon = document.getElementById("StressIcon");
   const DrunkIcon = document.getElementById("DrunkIcon");
+
+  const Speedometer = document.getElementById("SpeedoContainer");
 
   Circle.VoiceIndicator.animate(0.66);
 
@@ -36,10 +36,6 @@ window.onload = (event) => {
 
     if (action == "toggleHud") {
       Container.style.display = data ? "flex" : "none";
-    }
-
-    if (action == "setLogo") {
-      Logo.style.display = "block";
     }
 
     if (action == "setPlayerId") {
@@ -131,8 +127,6 @@ window.onload = (event) => {
         let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
         let nitrous = data.nitrous && data.nitrous;
-
-        Nitrous.style.display = nitrous !== false ? "block" : "none";
 
         if (data.electric == true) {
           Circle.FuelIndicator.path.setAttribute(
