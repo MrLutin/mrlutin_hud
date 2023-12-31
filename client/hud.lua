@@ -49,6 +49,17 @@ Citizen.CreateThread(function()
             SendMessage('setOxygen', false)
         end
 
+        -- stamina
+        if IsPedRunning(cache.ped) then
+            SendMessage('setStamina', {
+                current = GetPlayerStamina(cache.playerId),
+                max = GetPlayerMaxStamina(cache.playerId)
+            })
+        else
+            SendMessage('setStamina', false)
+        end
+
+
         Citizen.Wait(50)
     end
 
