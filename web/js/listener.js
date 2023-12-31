@@ -27,6 +27,7 @@ window.onload = (event) => {
   const DrunkIcon = document.getElementById("DrunkIcon");
 
   const Speedometer = document.getElementById("SpeedoContainer");
+  const Nitrous = document.getElementById("NitrousIndicator");
 
   Circle.VoiceIndicator.animate(0.66);
 
@@ -128,6 +129,10 @@ window.onload = (event) => {
         let fuel = data.fuel && data.fuel / 100;
         let nitrous = data.nitrous && data.nitrous;
 
+        if (nitrous == null || nitrous === 0) {
+          Nitrous.style.display = "none";
+        }
+
         if (data.electric == true) {
           Circle.FuelIndicator.path.setAttribute(
             "stroke",
@@ -147,7 +152,7 @@ window.onload = (event) => {
 
         Circle.RpmIndicator.path.setAttribute(
           "stroke",
-          rpm < 85 ? "rgb(255,0,0)" : "rgb(0,187,255)"
+          rpm > 85 ? "rgb(255,0,0)" : "rgb(0,187,255)"
         );
 
         Circle.RpmIndicator.animate(rpm);
