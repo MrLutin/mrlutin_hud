@@ -39,28 +39,6 @@ Citizen.CreateThread(function()
             SendMessage('setVoice', 'disconnected')
         end
 
-        -- oxygen
-        if IsPedSwimming(cache.ped) and IsPedSwimmingUnderWater(cache.ped) then
-            SendMessage('setOxygen', {
-                current = GetPlayerUnderwaterTimeRemaining(cache.playerId),
-                max = maxUnderwaterTime
-            })
-        else
-            SendMessage('setOxygen', false)
-        end
-
-        -- stamina
-        local curStamina = GetPlayerStamina(cache.playerId)
-        local maxStamina = GetPlayerMaxStamina(cache.playerId)
-        if curStamina < maxStamina then
-            SendMessage('setStamina', {
-                current = curStamina,
-                max = maxStamina
-            })
-        else
-            SendMessage('setStamina', false)
-        end
-
         Citizen.Wait(200)
     end
 
