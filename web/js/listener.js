@@ -134,7 +134,7 @@ window.onload = (event) => {
         let speed = data.speed.current * data.unitsMultiplier;
         let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
-        let nitrous = data.nitrous && data.nitrous / 100;
+        let nitrous = data.nitrous && data.nitrous;
 
         Nitrous.style.display = nitrous !== false ? "block" : "none";
 
