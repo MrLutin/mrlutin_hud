@@ -10,6 +10,7 @@ end
 -- load data & function by context
 if not IsDuplicityVersion() then
     PlayerIsLoaded = false
+    NuiReady = false
 
     RegisterNUICallback('nuiReady', function(_, cb)
         NuiReady = true

@@ -37,7 +37,5 @@ function InitializeHUD()
         })
     end
 
-    SendMessage('setPlayerId', cache.serverId)
-    SendMessage('toggleHud', true)
     print('HUD initialized')
 end
