@@ -11,10 +11,7 @@ repository   "https://github.com/MrLutin/mrlutin_hud"
 description  'Custom version of dx_hud made by mrlutin'
 
 -- Manifest --
-dependencies {
-    '/onesync',
-    'mrlutin_lib',
-}
+dependencies { 'mrlutin_lib' }
 
 shared_scripts {
     '@mrlutin_lib/imports.lua',
@@ -22,8 +19,7 @@ shared_scripts {
 }
 
 client_scripts {
-    'bridge/ox.lua',
-    'client/main.lua',
+    'client/*.lua',
 }
 
 server_scripts {
