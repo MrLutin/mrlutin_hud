@@ -131,7 +131,11 @@ window.onload = (event) => {
 
         if (nitrous == null || nitrous === 0) {
           Nitrous.style.display = "none";
+        } else {
+          Nitrous.style.display = "block";
         }
+
+        $(".speed").text(speed.toFixed(0));
 
         if (data.electric == true) {
           Circle.FuelIndicator.path.setAttribute(
@@ -147,7 +151,7 @@ window.onload = (event) => {
 
         Circle.NitrousIndicator.path.setAttribute(
           "stroke",
-          nitrous > 15 ? "rgb(0,255,187)" : "rgb(255,0,0)"
+          nitrous > 0.15 ? "rgb(0,255,187)" : "rgb(255,0,0)"
         );
 
         Circle.RpmIndicator.path.setAttribute(
