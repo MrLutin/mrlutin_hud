@@ -16,7 +16,9 @@ Citizen.CreateThread(function()
         })
 
         -- armour data
-        SendMessage('setArmour', GetPedArmour(cache.ped))
+        if GetPedArmour(cache.ped) > 0 then
+            SendMessage('setArmour', GetPedArmour(cache.ped))
+        end
 
         print('status updated')
         Citizen.Wait(1000)
