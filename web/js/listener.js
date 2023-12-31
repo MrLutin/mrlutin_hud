@@ -128,7 +128,7 @@ window.onload = (event) => {
         let isMetricMultiplier = data.isMetric ? 3.6 : 2.236936;
         let speed = data.speed.current * isMetricMultiplier;
         let rpm = data.rpm && data.rpm;
-        let fuel = data.fuel && data.fuel;
+        let fuel = data.fuel && data.fuel / 100;
         let nitrous = data.nitrous && data.nitrous;
 
         let speedValue = document.getElementById("currentSpeed");
@@ -157,8 +157,8 @@ window.onload = (event) => {
         }
 
         Circle.RpmIndicator.animate(rpm);
-        Circle.FuelIndicator.animate(fuel / 100);
-        Circle.NitrousIndicator.animate(data.nitrous / 100);
+        Circle.FuelIndicator.animate(fuel);
+        Circle.NitrousIndicator.animate(nitrous);
       } else {
         Speedometer.style.display = "none";
       }
