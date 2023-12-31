@@ -1,4 +1,7 @@
 Citizen.CreateThread(function()
+
+    DisplayRadar(false)
+
     repeat Wait(100) until PlayerIsLoaded and NuiReady
 
     print('HUD initialized')
