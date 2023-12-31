@@ -10,7 +10,7 @@ end
 -- load data & function by context
 if not IsDuplicityVersion() then
     PlayerIsLoaded = false
-    NuiReady = false
+    NuiReady = true
 
     RegisterNUICallback('nuiReady', function(_, cb)
         NuiReady = true
@@ -28,8 +28,8 @@ if not IsDuplicityVersion() then
     -- Support for resource restart
     AddEventHandler('onResourceStart', function(resourceName)
         if resourceName == cache.resource and cache.ped then
-            Mrlutin.log('info', string.format('%s is now started!', cache.resource ))
             PlayerIsLoaded = true
+            Mrlutin.log('info', string.format('%s is now started!', cache.resource ))
         end
     end)
 
