@@ -60,6 +60,7 @@ export default {
 
   // Vehicle HUD
   RpmIndicator: new ProgressBar.Line(".rpm", {
+    color: "rgb(0,187,255)",
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
     trailWidth: 3,

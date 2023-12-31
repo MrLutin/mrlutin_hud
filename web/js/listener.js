@@ -155,11 +155,6 @@ window.onload = (event) => {
           nitrous > 0.15 ? "rgb(0,255,187)" : "rgb(255,0,0)"
         );
 
-        Circle.RpmIndicator.path.setAttribute(
-          "stroke",
-          rpm > 85 ? "rgb(0,187,255)" : "rgb(255,0,0)"
-        );
-
         Circle.RpmIndicator.animate(rpm);
         Circle.FuelIndicator.animate(fuel);
         Circle.NitrousIndicator.animate(nitrous);
