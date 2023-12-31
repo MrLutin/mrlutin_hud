@@ -19,6 +19,7 @@ Citizen.CreateThread(function()
         -- armour data
         SendMessage('setArmour', GetPedArmour(cache.ped))
 
+        print('status updated')
         Citizen.Wait(1000)
     end
 end)
