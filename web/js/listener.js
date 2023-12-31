@@ -128,14 +128,15 @@ window.onload = (event) => {
         let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
         let nitrous = data.nitrous && data.nitrous;
+        let speedValue = document.getElementById("currentSpeed");
+
+        speedValue.innerHTML = speed.toFixed(0);
 
         if (nitrous == null || nitrous === 0) {
           Nitrous.style.display = "none";
         } else {
           Nitrous.style.display = "block";
         }
-
-        $(".speed").text(speed.toFixed(0));
 
         if (data.electric == true) {
           Circle.FuelIndicator.path.setAttribute(
