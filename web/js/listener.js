@@ -8,9 +8,8 @@ window.onload = (event) => {
   const Logo = document.getElementById("Logo");
   const ID = document.getElementById("ID");
 
-  const Speed = document.getElementById("SpeedoContainer");
-  const Nitrous = document.getElementById("NitrousIndicator");
-  const Fuel = document.getElementById("FuelIndicator");
+  const Speedometer = document.getElementById("SpeedoContainer");
+
   const Voice = document.getElementById("VoiceIndicator");
   const Armour = document.getElementById("ArmourIndicator");
   const Stamina = document.getElementById("StaminaIndicator");
@@ -24,13 +23,10 @@ window.onload = (event) => {
   const HealthIcon = document.getElementById("HealthIcon");
   const VoiceIcon = document.getElementById("VoiceIcon");
   const OxygenIcon = document.getElementById("OxygenIcon");
-  const FuelIcon = document.getElementById("FuelIcon");
   const HungerIcon = document.getElementById("HungerIcon");
   const ThirstIcon = document.getElementById("ThirstIcon");
   const StressIcon = document.getElementById("StressIcon");
   const DrunkIcon = document.getElementById("DrunkIcon");
-
-  const Seatbelt = document.getElementById("SeatbeltIcon");
 
   Circle.VoiceIndicator.animate(0.66);
 
@@ -129,7 +125,7 @@ window.onload = (event) => {
 
     if (action == "setVehicle") {
       if (data) {
-        Speed.style.display = "flex";
+        Speedometer.style.display = "flex";
 
         let speed = data.speed.current * data.unitsMultiplier;
         let rpm = data.rpm && data.rpm;
@@ -164,19 +160,7 @@ window.onload = (event) => {
         Circle.NitrousIndicator.animate(nitrous);
         Circle.RpmIndicator.animate(rpm);
       } else {
-        Speed.style.display = "none";
-
-        Circle.NitrousIndicator.animate(0, function () {
-          Nitrous.style.display = "none";
-        });
-
-        Circle.FuelIndicator.animate(0, function () {
-          Fuel.style.display = "none";
-        });
-
-        Circle.RpmIndicator.animate(0, function () {
-          Fuel.style.display = "none";
-        });
+        Speedometer.style.display = "none";
       }
     }
 
@@ -241,11 +225,11 @@ window.onload = (event) => {
       });
     }
 
-    if (action == "setSeatbelt") {
-      Seatbelt.style.display = data.toggled ? "block" : "none";
-      Seatbelt.style.color = data.buckled
-        ? "rgb(0, 255, 100)"
-        : "rgb(255, 100, 100)";
-    }
+    // if (action == "setSeatbelt") {
+    //   Seatbelt.style.display = data.toggled ? "block" : "none";
+    //   Seatbelt.style.color = data.buckled
+    //     ? "rgb(0, 255, 100)"
+    //     : "rgb(255, 100, 100)";
+    // }
   });
 };

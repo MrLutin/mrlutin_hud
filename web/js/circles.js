@@ -59,8 +59,8 @@ export default {
     duration: 100,
   }),
 
+  // Vehicle HUD
   RpmIndicator: new ProgressBar.Line(".rpm", {
-    color: "rgb(0,187,255)",
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
     trailWidth: 3,
@@ -68,7 +68,6 @@ export default {
   }),
 
   NitrousIndicator: new ProgressBar.Line(".nitrous", {
-    color: "rgb(0,255,187)",
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
     trailWidth: 3,
@@ -76,7 +75,6 @@ export default {
   }),
 
   FuelIndicator: new ProgressBar.Line(".fuel", {
-    color: "rgb(249,195,7)",
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
     trailWidth: 3,
