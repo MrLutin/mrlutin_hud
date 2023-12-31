@@ -13,7 +13,7 @@ RegisterNetEvent('ox:playerLoaded', function()
     InitializeHUD()
     Wait(500)
     SendMessage('setPlayerId', cache.serverId)
-    SendMessage('toggleHud', HUD)
+    SendMessage('toggleHud', true)
 end)
 
 RegisterNetEvent('ox:playerLogout', function()

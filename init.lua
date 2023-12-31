@@ -38,6 +38,8 @@ else
             message = message
         })
     end
+
+    print('Loading of HUD')
 end
 
 

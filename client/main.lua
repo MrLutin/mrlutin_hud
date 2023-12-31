@@ -39,6 +39,7 @@ function InitializeHUD()
 
     SendMessage('setPlayerId', cache.serverId)
     SendMessage('toggleHud', true)
+    print('HUD initialized')
 end
 
 AddEventHandler('onResourceStart', function(resourceName)
