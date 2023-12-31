@@ -157,7 +157,7 @@ window.onload = (event) => {
 
         Circle.RpmIndicator.path.setAttribute(
           "stroke",
-          rpm > 85 ? "rgb(0,187,255)" : "rgb(255,0,0)"
+          rpm > 0.85 ? "rgb(0,187,255)" : "rgb(255,0,0)"
         );
 
         Circle.RpmIndicator.animate(rpm);
