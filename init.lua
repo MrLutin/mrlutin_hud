@@ -18,8 +18,6 @@ if not IsDuplicityVersion() then
     end)
 
     ---Easier NUI Messages
-    ---@param action string
-    ---@param message any
     function SendMessage(action, message)
         SendNUIMessage({
             action = action,
@@ -31,6 +29,14 @@ if not IsDuplicityVersion() then
     AddEventHandler('onResourceStart', function(resourceName)
         if resourceName == cache.resource and cache.ped then
             PlayerIsLoaded = true
+            Mrlutin.log('info', sting.format('%s is now started!', cache.resource ))
+        end
+    end)
+
+    -- send warn message if hud is stopped
+    AddEventHandler('onResourceStop', function(resource)
+        if resource == GetCurrentResourceName() then
+            Mrlutin.log('warn', sting.format('%s is now stopped!', cache.resource ))
         end
     end)
 end
@@ -47,7 +53,6 @@ if IsDuplicityVersion() then
         StopResource( GetCurrentResourceName() )
         print(Msg)
     end
-
 end
 
 
