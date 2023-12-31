@@ -72,26 +72,17 @@ export default {
   }),
 
   NitrousIndicator: new ProgressBar.Line(".nitrous", {
-    from: { color: "rgba(255,0,8,0.75)" },
-    to: { color: "#00ffff" },
+    color: "rgb(2,255,188)",
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
     trailWidth: 3,
     duration: 600,
-    step: (state, bar) => {
-      bar.path.setAttribute("stroke", state.color);
-    },
   }),
 
   FuelIndicator: new ProgressBar.Line(".fuel", {
-    from: { color: "rgba(255,0,8,0.53)" },
-    to: { color: "#f9c307" },
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
     trailWidth: 3,
     duration: 600,
-    step: (state, bar) => {
-      bar.path.setAttribute("stroke", state.color);
-    },
   }),
 };
