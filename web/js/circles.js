@@ -52,21 +52,9 @@ export default {
     trailWidth: 13,
     duration: 600,
   }),
-  NitrousIndicator: new ProgressBar.Circle("#NitrousIndicator", {
-    color: "rgb(2,255,195)",
-    trailColor: "rgb(35, 35, 35)",
-    strokeWidth: 13,
-    trailWidth: 13,
-    duration: 600,
-  }),
+
   DrunkIndicator: new ProgressBar.Circle("#NitrousIndicator", {
     color: "rgb(86,2,255)",
-    trailColor: "rgb(35, 35, 35)",
-    strokeWidth: 13,
-    trailWidth: 13,
-    duration: 600,
-  }),
-  FuelIndicator: new ProgressBar.Circle("#FuelIndicator", {
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 13,
     trailWidth: 13,
@@ -78,10 +66,27 @@ export default {
     duration: 100,
   }),
 
-  RpmIndicator: new ProgressBar.Line("#nitrous", {
-    color: "rgb(255,213,0)",
+  RpmIndicator: new ProgressBar.Line(".rpm", {
+    color: "rgba(17,255,0,0.75)",
+    trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
-    trailWidth: 13,
+    trailWidth: 3,
+    duration: 600,
+  }),
+
+  NitrousIndicator: new ProgressBar.Line(".nitrous", {
+    color: "rgb(0,255,187)",
+    trailColor: "rgb(35, 35, 35)",
+    strokeWidth: 4,
+    trailWidth: 3,
+    duration: 600,
+  }),
+
+  FuelIndicator: new ProgressBar.line(".fuel", {
+    color: "rgb(249,195,7)",
+    trailColor: "rgb(35, 35, 35)",
+    strokeWidth: 4,
+    trailWidth: 3,
     duration: 600,
   }),
 };
