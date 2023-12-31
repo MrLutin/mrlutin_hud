@@ -8,10 +8,8 @@ CreateThread(function()
                     current = GetEntitySpeed(cache.vehicle),
                     max = GetVehicleModelMaxSpeed(model)
                 },
-                unitsMultiplier = GetConvar('hud:unitsystem', 'imperial') == 'metric' and 3.6 or 2.236936,
-                fuel = GetConvarInt('hud:fuel', false) == 1 and not IsThisModelABicycle(model) and
-                        GetVehicleFuelLevel(cache.vehicle),
-                electric = electricModels[model]
+                unitsMultiplier = 3.6,
+                fuel = GetVehicleFuelLevel(cache.vehicle),
             })
             offVehicle = false
         elseif not offVehicle then
