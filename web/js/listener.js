@@ -125,13 +125,17 @@ window.onload = (event) => {
       if (data) {
         Speedometer.style.display = "flex";
 
-        let speed = data.speed.current * data.unitsMultiplier;
+        let isMetricMultiplier = data.isMetric ? 3.6 : 2.236936;
+        let speed = data.speed.current * isMetricMultiplier;
         let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
         let nitrous = data.nitrous && data.nitrous / 100;
+
         let speedValue = document.getElementById("currentSpeed");
+        let metricType = document.getElementById("measurementType");
 
         speedValue.innerHTML = speed.toFixed(0);
+        metricType.innerHTML = data.isMetric ? "kmh" : "mph";
 
         if (nitrous == null || nitrous === 0) {
           Nitrous.style.display = "none";

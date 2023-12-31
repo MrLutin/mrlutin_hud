@@ -6,13 +6,13 @@ RegisterCommand('seatbelt', function()
     hasSeatbelt = not hasSeatbelt
 
     if hasSeatbelt then
-        SendMessage('setSeatbelt', { toggled = true, buckled = true })
+        SendMessage('setSeatbelt', { buckled = true })
         SetFlyThroughWindscreenParams(120.0, 120.0, 0.0, 0.0)
     elseif hasHarnest then
-        SendMessage('setSeatbelt', { toggled = true, buckled = true })
+        SendMessage('setSeatbelt', { buckled = true })
         SetFlyThroughWindscreenParams(1000.0, 1000.0, 0.0, 0.0)
     else
-        SendMessage('setSeatbelt', { toggled = true, buckled = false })
+        SendMessage('setSeatbelt', { buckled = false })
         ResetFlyThroughWindscreenParams()
     end
 end, false)
