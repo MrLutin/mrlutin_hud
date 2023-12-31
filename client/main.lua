@@ -7,22 +7,22 @@ function SendMessage(action, message)
 end
 
 function InitializeHUD()
-    DisplayRadar(true)
-    repeat Wait(100) until PlayerIsLoaded
+    repeat Wait(100) until PlayerIsLoaded and NuiReady
     print('HUD initialized')
-    SendMessage('toggleHud', PlayerIsLoaded)
 end
 
 -- NUI callback
 RegisterNUICallback('nuiReady', function(_, cb)
+    InitializeHUD()
     NuiReady = true
     cb({})
 end)
 
 
 AddEventHandler('Mrlutin:OnPlayerLoaded', function(playerData)
+    InitializeHUD()
     PlayerIsLoaded = true
-    Mrlutin.log('info', json.encode(playerData, {indent=true}))
+    SendMessage('toggleHud', PlayerIsLoaded)
 end)
 
 

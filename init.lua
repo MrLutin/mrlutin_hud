@@ -10,7 +10,7 @@ end
 -- load data & function by context
 if not IsDuplicityVersion() then
     PlayerIsLoaded = false
-    NuiReady = true
+    NuiReady = false
 
     -- Support for resource restart
     AddEventHandler('onResourceStart', function(resourceName)
