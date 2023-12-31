@@ -132,10 +132,11 @@ window.onload = (event) => {
         let nitrous = data.nitrous && data.nitrous / 100;
 
         let speedValue = document.getElementById("currentSpeed");
-        let metricType = document.getElementById("measurementType");
+        let measurementType = document.getElementById("metricType");
+        let metricType = data.isMetric ? "kmh" : "mph";
 
         speedValue.innerHTML = speed.toFixed(0);
-        metricType.innerHTML = data.isMetric ? "kmh" : "mph";
+        measurementType.innerHTML = metricType;
 
         if (nitrous == null || nitrous === 0) {
           Nitrous.style.display = "none";
