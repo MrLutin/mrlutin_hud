@@ -26,14 +26,14 @@ CreateThread(function()
     while true do
         if cache.vehicle then
             local model = GetEntityModel(cache.vehicle)
-
+            local vehEntity = Entity(cache.vehicle).state
             SendMessage('setVehicle', {
-                speed = {current = GetEntitySpeed(cache.vehicle), max = GetVehicleModelMaxSpeed(model)},
                 isMetric = ShouldUseMetricMeasurements(),
+                rpm = GetVehicleCurrentRpm(cache.vehicle),
+                speed = {current = GetEntitySpeed(cache.vehicle), max = GetVehicleModelMaxSpeed(model)},
                 electric = electricModels[model] or false,
-                fuel = GetVehicleFuelLevel(cache.vehicle),
-                nitrous = Entity(cache.vehicle).state.nitrous,
-                rpm = GetVehicleCurrentRpm(cache.vehicle)
+                fuel = vehEntity.fuel or GetVehicleFuelLevel(cache.vehicle),
+                nitrous = vehEntity.nitrous or 0,
             })
             offVehicle = false
         elseif not offVehicle then
