@@ -1,6 +1,6 @@
 function InitializeHUD()
-    DisplayRadar(false)
-    repeat Wait(100) until PlayerIsLoaded and NuiReady
+    DisplayRadar(true)
+    repeat Wait(100) until PlayerIsLoaded or not NuiReady
     print('HUD initialized')
 end
 
