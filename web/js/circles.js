@@ -82,7 +82,7 @@ export default {
     duration: 600,
   }),
 
-  FuelIndicator: new ProgressBar.line(".fuel", {
+  FuelIndicator: new ProgressBar.Line(".fuel", {
     color: "rgb(249,195,7)",
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
