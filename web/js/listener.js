@@ -125,7 +125,7 @@ window.onload = (event) => {
         Speedometer.style.display = "flex";
 
         let speed = data.speed.current * data.unitsMultiplier;
-        let rpm = data.rpm && data.rpm * 100;
+        let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
         let nitrous = data.nitrous && data.nitrous;
 
@@ -152,7 +152,7 @@ window.onload = (event) => {
 
         Circle.RpmIndicator.path.setAttribute(
           "stroke",
-          rpm > 85 ? "rgb(255,0,0)" : "rgb(0,187,255)"
+          rpm > 85 ? "rgb(0,187,255)" : "rgb(255,0,0)"
         );
 
         Circle.RpmIndicator.animate(rpm);
