@@ -61,8 +61,7 @@ Citizen.CreateThread(function()
             SendMessage('setStamina', false)
         end
 
-
-        Citizen.Wait(50)
+        Citizen.Wait(200)
     end
 
     AddEventHandler('pma-voice:setTalkingMode', function(mode)
