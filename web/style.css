@@ -11,7 +11,7 @@ img {
   height: 100%;
   overflow: hidden;
   margin: 0;
-  /*display: none;*/
+  display: none;
   flex-direction: column;
 }
 
@@ -20,7 +20,7 @@ img {
 }
 
 #SpeedoContainer {
-  display: flex;
+  display: none;
   align-items: flex-end;
   justify-content: space-between;
   flex-direction: column;
