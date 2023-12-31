@@ -83,7 +83,7 @@ img {
 
 .flash {
   -webkit-animation: flash 1s;
-  animation: flash 1s;
+  animation: flash 1s infinite;
 }
 
 @keyframes flash {
@@ -99,7 +99,7 @@ img {
 }
 
 #SpeedoContainer {
-  display: flex;
+  display: none;
   align-items: flex-end;
   justify-content: space-between;
   flex-direction: column;

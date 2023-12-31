@@ -36,11 +36,11 @@ window.onload = (event) => {
     let action = event.data.action;
     let data = event.data.message;
 
-    if (action == "toggleHud") {
+    if (action === "toggleHud") {
       Container.style.display = data ? "flex" : "none";
     }
 
-    if (action == "setPlayerId") {
+    if (action === "setPlayerId") {
       if (data) {
         ID.style.display = "block";
         ID.textContent = "#" + data;
@@ -49,7 +49,7 @@ window.onload = (event) => {
       }
     }
 
-    if (action == "setHealth") {
+    if (action === "setHealth") {
       Health.style.display = "block";
 
       let health = (data.current - 100) / (data.max - 100);
@@ -74,14 +74,14 @@ window.onload = (event) => {
       Circle.HealthIndicator.animate(health);
     }
 
-    if (action == "setArmour") {
+    if (action === "setArmour") {
       Armour.style.display = "block";
       Circle.ArmourIndicator.animate(data / 100, function () {
-        Armour.style.display = data == 0 && "none";
+        Armour.style.display = data === 0 && "none";
       });
     }
 
-    if (action == "setStamina") {
+    if (action === "setStamina") {
       if (data) {
         Stamina.style.display = "block";
 
@@ -101,7 +101,7 @@ window.onload = (event) => {
       }
     }
 
-    if (action == "setOxygen") {
+    if (action === "setOxygen") {
       if (data) {
         Oxygen.style.display = "block";
 
@@ -121,7 +121,7 @@ window.onload = (event) => {
       }
     }
 
-    if (action == "setVehicle") {
+    if (action === "setVehicle") {
       if (data) {
         Speedometer.style.display = "flex";
 
@@ -139,7 +139,7 @@ window.onload = (event) => {
           Nitrous.style.display = "block";
         }
 
-        if (data.electric == true) {
+        if (data.electric === true) {
           Circle.FuelIndicator.path.setAttribute(
             "stroke",
             fuel > 0.15 ? "rgb(30,204,8)" : "rgb(255, 0, 0)"
@@ -164,9 +164,9 @@ window.onload = (event) => {
       }
     }
 
-    if (action == "setVoice") {
+    if (action === "setVoice") {
       Voice.style.display = "block";
-      if (data == "disconnected") {
+      if (data === "disconnected") {
         VoiceIcon.classList.remove("fa-microphone");
         VoiceIcon.classList.add("fa-times");
         Circle.VoiceIndicator.path.setAttribute("stroke", "rgb(255, 0, 0)");
@@ -182,7 +182,7 @@ window.onload = (event) => {
       }
     }
 
-    if (action == "setVoiceRange") {
+    if (action === "setVoiceRange") {
       switch (data) {
         case 0:
           data = 15;
@@ -204,7 +204,7 @@ window.onload = (event) => {
       Circle.VoiceIndicator.animate(data / 100);
     }
 
-    if (action == "status") {
+    if (action === "status") {
       Hunger.style.display = "block";
       Thirst.style.display = "block";
       Stress.style.display = data.stress > 5 && "block";
@@ -226,11 +226,14 @@ window.onload = (event) => {
       });
     }
 
-    if (action == "setSeatbelt") {
-      Seatbelt.style.display = data.toggled ? "block" : "none";
-      Seatbelt.style.color = data.buckled
-        ? "rgb(0, 255, 100)"
-        : "rgb(255, 100, 100)";
+    if (action === "setSeatbelt") {
+      if (data.buckled) {
+        Seatbelt.classList.remove("flash");
+        Seatbelt.style.color = "rgb(0, 255, 100)";
+      } else {
+        Seatbelt.classList.add("flash");
+        Seatbelt.style.color = "rgb(255, 0, 100)";
+      }
     }
   });
 };
