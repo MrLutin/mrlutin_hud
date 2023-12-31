@@ -1,4 +1,4 @@
-Citizen.CreateTread(function()
+Citizen.CreateThread(function()
     repeat Wait(100) until PlayerIsLoaded and NuiReady
 
     while PlayerIsLoaded and NuiReady do

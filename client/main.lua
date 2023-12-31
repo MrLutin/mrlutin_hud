@@ -6,10 +6,6 @@ function SendMessage(action, message)
     })
 end
 
-function InitializeHUD()
-
-end
-
 -- NUI callback
 RegisterNUICallback('nuiReady', function(_, cb)
     NuiReady = true
