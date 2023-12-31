@@ -26,13 +26,11 @@ CreateThread(function()
     while true do
         if cache.vehicle then
             local model = GetEntityModel(cache.vehicle)
+            local isMetric = ShouldUseMetricMeasurements()
 
             SendMessage('setVehicle', {
-                speed = {
-                    current = GetEntitySpeed(cache.vehicle),
-                    max = GetVehicleModelMaxSpeed(model)
-                },
-                unitsMultiplier = 2.236936,
+                speed = {current = GetEntitySpeed(cache.vehicle), max = GetVehicleModelMaxSpeed(model)},
+                unitsMultiplier = isMetric and 3.6 or 2.236936,
                 electric = electricModels[model] or false,
                 fuel = GetVehicleFuelLevel(cache.vehicle),
                 nitrous = Entity(cache.vehicle).state.nitrous,
