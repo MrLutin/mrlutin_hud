@@ -34,6 +34,7 @@ CreateThread(function()
                 electric = electricModels[model] or false,
                 fuel = vehEntity.fuel or GetVehicleFuelLevel(cache.vehicle),
                 nitrous = vehEntity.nitrous or 0,
+                maxNitrous = 500
             })
             offVehicle = false
         elseif not offVehicle then
