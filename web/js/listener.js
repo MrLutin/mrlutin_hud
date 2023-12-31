@@ -134,7 +134,7 @@ window.onload = (event) => {
         let speed = data.speed.current * data.unitsMultiplier;
         let rpm = data.rpm && data.rpm;
         let fuel = data.fuel && data.fuel / 100;
-        let nitrous = data.nitrous && data.nitrous;
+        let nitrous = data.nitrous && data.nitrous / 100;
 
         Nitrous.style.display = nitrous !== false ? "block" : "none";
 
@@ -145,12 +145,9 @@ window.onload = (event) => {
           );
         }
 
-        fuel <= 0.15 && FuelIcon.classList.toggle("flash");
-        nitrous <= 15 && FuelIcon.classList.toggle("flash");
-
         Circle.NitrousIndicator.path.setAttribute(
           "stroke",
-          nitrous > 15 ? "rgba(255,255,255)" : "rgb(255,0,0)"
+          nitrous > 0.15 ? "rgba(255,255,255)" : "rgb(255,0,0)"
         );
 
         Circle.FuelIndicator.path.setAttribute(
