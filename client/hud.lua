@@ -1,6 +1,7 @@
 Citizen.CreateThread(function()
 
     DisplayRadar(false)
+    local voiceCon = MumbleIsConnected()
 
     repeat Wait(100) until PlayerIsLoaded and NuiReady
 
@@ -23,7 +24,16 @@ Citizen.CreateThread(function()
             SendMessage('setArmour', GetPedArmour(cache.ped))
         end
 
+        if voiceCon then
+            SendMessage('setVoice', NetworkIsPlayerTalking(cache.playerId))
+        else
+            SendMessage('setVoice', 'disconnected')
+        end
 
         Citizen.Wait(50)
     end
+
+    AddEventHandler('pma-voice:setTalkingMode', function(mode)
+        SendMessage('setVoiceRange', mode)
+    end)
 end)
