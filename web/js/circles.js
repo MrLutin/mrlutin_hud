@@ -60,24 +60,38 @@ export default {
 
   // Vehicle HUD
   RpmIndicator: new ProgressBar.Line(".rpm", {
-    color: "rgb(0,187,255)",
+    from: { color: "rgb(0,187,255)" },
+    to: { color: "#ED6A5A" },
     trailColor: "rgb(35, 35, 35)",
     strokeWidth: 4,
     trailWidth: 3,
     duration: 600,
+    step: (state, bar) => {
+      bar.path.setAttribute("stroke", state.color);
+    },
   }),
 
   NitrousIndicator: new ProgressBar.Line(".nitrous", {
     trailColor: "rgb(35, 35, 35)",
+    from: { color: "#00ffbb" },
+    to: { color: "#ED6A5A" },
     strokeWidth: 4,
     trailWidth: 3,
     duration: 600,
+    step: (state, bar) => {
+      bar.path.setAttribute("stroke", state.color);
+    },
   }),
 
   FuelIndicator: new ProgressBar.Line(".fuel", {
     trailColor: "rgb(35, 35, 35)",
+    from: { color: "#f9c307" },
+    to: { color: "#ED6A5A" },
     strokeWidth: 4,
     trailWidth: 3,
     duration: 600,
+    step: (state, bar) => {
+      bar.path.setAttribute("stroke", state.color);
+    },
   }),
 };
