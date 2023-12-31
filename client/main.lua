@@ -7,5 +7,5 @@ end
 
 AddEventHandler('Mrlutin:OnPlayerLoaded', function(playerData)
     PlayerIsLoaded = true
-    Mrlutin.log('debug', playerData)
+    Mrlutin.log('info', json.encode(playerData, {indent=true}))
 end)
