@@ -145,13 +145,15 @@ window.onload = (event) => {
         }
 
         if (data.electric === true) {
-          Circle.FuelIndicator.path.setAttribute("from", {
-            color: "rgb(17,255,0)",
-          });
+          Circle.FuelIndicator.path.setAttribute(
+            "stroke",
+            fuel > 0.15 ? "rgb(17,255,0)" : "rgb(255, 0, 0)"
+          );
         } else {
-          Circle.FuelIndicator.path.setAttribute("from", {
-            color: "rgb(249,195,7)",
-          });
+          Circle.FuelIndicator.path.setAttribute(
+            "stroke",
+            fuel > 0.15 ? "rgb(249,195,7)" : "rgb(255, 0, 0)"
+          );
         }
 
         Circle.RpmIndicator.animate(rpm);
