@@ -15,6 +15,7 @@ Citizen.CreateThread(function()
         -- armour data
         SendMessage('setArmour', GetPedArmour(cache.ped))
 
+        Citizen.Wait(1000)
     end
 
     SendMessage('toggleHud', true)
