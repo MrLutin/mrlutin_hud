@@ -41,11 +41,3 @@ function InitializeHUD()
     SendMessage('toggleHud', true)
     print('HUD initialized')
 end
-
-AddEventHandler('onResourceStart', function(resourceName)
-    if cache.resource ~= resourceName then return end
-    PlayerLoaded = true
-    HUD = true
-    Wait(500)
-    InitializeHUD()
-end)

@@ -10,6 +10,7 @@ if player then
 end
 
 RegisterNetEvent('ox:playerLoaded', function()
+    PlayerLoaded = true
     InitializeHUD()
     Wait(500)
     SendMessage('setPlayerId', cache.serverId)

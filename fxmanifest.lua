@@ -6,7 +6,7 @@ games        { 'gta5' }
 
 -- Resource Information --
 version '0.0.0'
-author       'MrLutin'
+author  '0xDEMXN/MrLutin'
 repository   "https://github.com/MrLutin/mrlutin_hud"
 description  'Custom version of dx_hud made by mrlutin'
 

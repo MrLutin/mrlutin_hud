@@ -7,23 +7,10 @@ if not GetResourceState('mrlutin_lib'):find('start') then
     return Mrlutin.error('^1mrlutin_lib should be started before this resource.^0')
 end
 
--- Global variables
-PlayerLoaded = false
-NuiReady = false
-HUD = false
-
 -- load data & function by context
-if IsDuplicityVersion() then
-    -- check if dependencies for some other resources
-    local mrSuccess, mrMsg = Mrlutin.checkDependency('mrlutin_lib', '1.0.0')
-    local oxSuccess, oxMsg = Mrlutin.checkDependency('ox_lib', '3.12.0')
+if not IsDuplicityVersion() then
+    PlayerIsLoaded = false
 
-    -- if dependencies not found
-    if not mrSuccess or not oxSuccess then
-        StopResource( GetCurrentResourceName() )
-        print(mrMsg or oxMsg)
-    end
-else
     RegisterNUICallback('nuiReady', function(_, cb)
         NuiReady = true
         cb({})
@@ -39,7 +26,27 @@ else
         })
     end
 
-    print('Loading of HUD')
+    -- Support for resource restart
+    AddEventHandler('onResourceStart', function(resourceName)
+        if resourceName == cache.resource and cache.ped then
+            PlayerIsLoaded = true
+        end
+    end)
+end
+
+-- Server side
+if IsDuplicityVersion() then
+
+    SetConvarReplicated('game_enableFlyThroughWindscreen', 'true') -- Enable flying trough windscreen while in vehicle
+    SetConvarReplicated('voice_enableUi', 'false') -- remove the pma_voice hud
+
+    -- check the dependencies of resources
+    local Success, Msg = Mrlutin.checkDependency('mrlutin_lib', '1.0.0')
+    if not Success then
+        StopResource( GetCurrentResourceName() )
+        print(Msg)
+    end
+
 end
 
 
