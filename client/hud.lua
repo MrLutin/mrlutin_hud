@@ -40,7 +40,7 @@ Citizen.CreateThread(function()
         end
 
         -- oxygen
-        if IsPedSwimming(cache.ped) then
+        if IsPedSwimming(cache.ped) and IsPedSwimmingUnderWater(cache.ped) then
             SendMessage('setOxygen', {
                 current = GetPlayerUnderwaterTimeRemaining(cache.playerId),
                 max = maxUnderwaterTime
