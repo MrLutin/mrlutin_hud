@@ -34,7 +34,7 @@ CreateThread(function()
                 },
                 unitsMultiplier = 3.6,
                 electric = electricModels[model] or false,
-                fuel = GetVehicleFuelLevel(cache.vehicle) / 100 ,
+                fuel = GetVehicleFuelLevel(cache.vehicle),
                 nitrous = Entity(cache.vehicle).state.nitrous,
                 rpm = GetVehicleCurrentRpm(cache.vehicle)
             })
