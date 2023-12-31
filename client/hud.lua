@@ -1,6 +1,11 @@
 Citizen.CreateThread(function()
     repeat Wait(100) until PlayerIsLoaded and NuiReady
 
+    print('HUD initialized')
+    SendMessage('toggleHud', true)
+    SendMessage('setPlayerId', cache.serverId)
+
+    -- statuses loop
     while true do
         -- hide hud if PauseMenu is Active
         SendMessage('toggleHud', IsPauseMenuActive())
@@ -16,8 +21,4 @@ Citizen.CreateThread(function()
 
         Citizen.Wait(1000)
     end
-
-    SendMessage('toggleHud', true)
-    SendMessage('setPlayerId', cache.serverId)
-    print('HUD initialized')
 end)
