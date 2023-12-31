@@ -12,6 +12,18 @@ if not IsDuplicityVersion() then
     PlayerIsLoaded = false
     NuiReady = false
 
+    if IsPedSwimming(cache.ped) then
+        Mrlutin.notify({
+            id = 'hud:swimming',
+            title = 'Swimming time',
+            description = 'Looks like you are swimming, please don\'t go underwater while the HUD is loading.',
+            type = 'inform',
+            duration = 10000
+        })
+    else
+        maxUnderwaterTime = GetPlayerUnderwaterTimeRemaining(cache.playerId)
+    end
+
     -- Support for resource restart
     AddEventHandler('onResourceStart', function(resourceName)
         if resourceName == cache.resource and cache.ped then

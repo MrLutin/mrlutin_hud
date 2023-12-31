@@ -32,10 +32,21 @@ Citizen.CreateThread(function()
             SendMessage('setArmour', GetPedArmour(cache.ped))
         end
 
+        -- voice
         if voiceCon then
             SendMessage('setVoice', NetworkIsPlayerTalking(cache.playerId))
         else
             SendMessage('setVoice', 'disconnected')
+        end
+
+        -- oxygen
+        if IsPedSwimmingUnderWater(cache.ped) then
+            SendMessage('setOxygen', {
+                current = GetPlayerUnderwaterTimeRemaining(cache.playerId),
+                max = maxUnderwaterTime
+            })
+        else
+            SendMessage('setOxygen', false)
         end
 
         Citizen.Wait(50)
