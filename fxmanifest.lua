@@ -22,8 +22,8 @@ shared_scripts {
 }
 
 client_scripts {
-    'bridge/*.lua',
-    'client/*.lua',
+    'bridge/ox.lua',
+    'client/main.lua',
 }
 
 server_scripts {
