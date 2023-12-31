@@ -8,7 +8,7 @@ window.onload = (event) => {
   const Logo = document.getElementById("Logo");
   const ID = document.getElementById("ID");
 
-  const Speed = document.getElementById("SpeedIndicator");
+  const Speed = document.getElementById("SpeedoContainer");
   const Nitrous = document.getElementById("NitrousIndicator");
   const Fuel = document.getElementById("FuelIndicator");
   const Voice = document.getElementById("VoiceIndicator");
@@ -130,7 +130,7 @@ window.onload = (event) => {
 
     if (action == "setVehicle") {
       if (data) {
-        Speed.style.display = "block";
+        Speed.style.display = "flex";
 
         let speed = data.speed.current * data.unitsMultiplier;
         let maxSpeed = data.speed.max * data.unitsMultiplier;
