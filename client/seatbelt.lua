@@ -13,7 +13,7 @@ RegisterCommand('seatbelt', function()
         SetFlyThroughWindscreenParams(1000.0, 1000.0, 0.0, 0.0)
     else
         SendMessage('setSeatbelt', { buckled = false })
-        ResetFlyThroughWindscreenParams()
+        SetFlyThroughWindscreenParams(15.0, 20.0, 17.0, 2000.0)
     end
 end, false)
 
