@@ -50,10 +50,12 @@ Citizen.CreateThread(function()
         end
 
         -- stamina
-        if IsPedRunning(cache.ped) then
+        local curStamina = GetPlayerStamina(cache.playerId)
+        local maxStamina = GetPlayerMaxStamina(cache.playerId)
+        if curStamina < maxStamina then
             SendMessage('setStamina', {
-                current = GetPlayerStamina(cache.playerId),
-                max = GetPlayerMaxStamina(cache.playerId)
+                current = curStamina,
+                max = maxStamina
             })
         else
             SendMessage('setStamina', false)
