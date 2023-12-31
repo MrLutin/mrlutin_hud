@@ -32,7 +32,7 @@ CreateThread(function()
                     current = GetEntitySpeed(cache.vehicle),
                     max = GetVehicleModelMaxSpeed(model)
                 },
-                unitsMultiplier = 3.6,
+                unitsMultiplier = 2.236936,
                 electric = electricModels[model] or false,
                 fuel = GetVehicleFuelLevel(cache.vehicle),
                 nitrous = Entity(cache.vehicle).state.nitrous,
