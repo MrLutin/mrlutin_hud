@@ -27,6 +27,7 @@ CreateThread(function()
         if cache.vehicle then
             local model = GetEntityModel(cache.vehicle)
             local vehEntity = Entity(cache.vehicle).state
+            DisplayRadar(false)
             SendMessage('setVehicle', {
                 isMetric = ShouldUseMetricMeasurements(),
                 rpm = GetVehicleCurrentRpm(cache.vehicle),
@@ -38,6 +39,7 @@ CreateThread(function()
             })
             offVehicle = false
         elseif not offVehicle then
+            DisplayRadar(false)
             SendMessage('setVehicle', false)
             offVehicle = true
         end
