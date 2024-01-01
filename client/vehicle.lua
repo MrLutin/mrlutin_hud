@@ -27,7 +27,7 @@ CreateThread(function()
         if cache.vehicle then
             local model = GetEntityModel(cache.vehicle)
             local vehEntity = Entity(cache.vehicle).state
-            DisplayRadar(false)
+            DisplayRadar(true)
             SendMessage('setVehicle', {
                 isMetric = ShouldUseMetricMeasurements(),
                 rpm = GetVehicleCurrentRpm(cache.vehicle),
